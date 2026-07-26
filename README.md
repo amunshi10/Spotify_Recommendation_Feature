@@ -1,5 +1,7 @@
 # Spotify Song Recommendation System
 
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+
 ## What this project does
 
 We're building a **content-based song recommender**: given the name of a song, it suggests other
@@ -52,8 +54,10 @@ Following the steps above, we worked through the full pipeline in
 [`notebooks/spotify_recommender.ipynb`](notebooks/spotify_recommender.ipynb):
 
 - **Loaded** the 169,909-row dataset and confirmed there were **no missing values** across any column.
-- **Checked correlations** between the audio features (see `outputs/correlation_heatmap.png`) after
-  dropping the identifier/metadata columns that don't describe a track's sound.
+- **Checked correlations** between the audio features after dropping the identifier/metadata columns
+  that don't describe a track's sound:
+
+  ![Feature correlation heatmap](outputs/correlation_heatmap.png)
 - **Scaled** the 10 continuous audio features with `MinMaxScaler` so every feature contributes on the
   same 0-1 scale — `loudness` (measured in dB, roughly -60 to 0) would otherwise dominate a raw
   distance calculation.
@@ -90,3 +94,7 @@ Following the steps above, we worked through the full pipeline in
   represented by a single averaged feature vector, so their nearest neighbors can feel unrelated.
 - **Duplicate entries** exist in the source dataset (same song/artist, slightly different feature
   values), which can surface a track twice in a result set.
+
+## License
+
+[MIT](LICENSE)
