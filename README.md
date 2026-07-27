@@ -15,8 +15,6 @@ The dataset covers 170,000+ tracks released between 1921 and 2020.
 
 [Spotify Dataset 1921-2020, 160k+ Tracks](https://www.kaggle.com/datasets/ektanegi/spotifydata-19212020) (Kaggle).
 
-Download `data.csv` from the link above (or the zip export) and place it in the `data/` folder.
-
 ## Project steps
 
 1. **EDA** — check shape, dtypes, missing values, and correlations between audio features.
@@ -36,18 +34,6 @@ notebooks/        exploration and evaluation notebook
 outputs/          saved plots/results
 src/recommender.py  shared recommender logic (used by both the notebook and app.py)
 app.py            interactive Streamlit demo
-```
-
-## Setup
-
-```
-pip install -r requirements.txt
-```
-
-Then open `notebooks/spotify_recommender.ipynb` and run all cells, or launch the interactive app:
-
-```
-streamlit run app.py
 ```
 
 ## What we did
