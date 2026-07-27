@@ -50,7 +50,14 @@ Following the steps above, we worked through the full pipeline in
   same 0-1 scale — `loudness` (measured in dB, roughly -60 to 0) would otherwise dominate a raw
   distance calculation.
 - **Clustered** the scaled features into 10 groups with K-Means, adding a `cluster` label as a rough
-  proxy for "genre" without ever looking at genre metadata.
+  proxy for "genre" without ever looking at genre metadata:
+
+  ![K-Means clusters, PCA-reduced to 2D](outputs/cluster_pca.png)
+
+  Reduced to 2D with PCA, the clusters separate cleanly — confirming they correspond to real structure
+  in the audio features rather than an arbitrary K-Means split. That structure is much less visible when
+  plotted on just two raw features (`energy` vs. `valence`) instead of PCA's components, since the
+  clustering used all 10 dimensions — see the notebook for that comparison plot and a discussion of why.
 - **Built a `SpotifyRecommender` class** (in [`src/recommender.py`](src/recommender.py), shared by the
   notebook and the Streamlit app) that:
   - uses **cosine distance** by default rather than Euclidean,
