@@ -77,6 +77,27 @@ Following the steps above, we worked through the full pipeline in
 - **Built an interactive Streamlit app** (`app.py`) so recommendations can be explored without editing
   notebook cells directly.
 
+### Findings
+
+- **Same-cluster filtering + weighted cosine distance generally produced coherent results.** "Smells
+  Like Teen Spirit" returned a solid rock cluster (Avenged Sevenfold, U2, Mötley Crüe); "Shape of You"
+  returned Latin/tropical pop tracks — genre-appropriate matches the model was never told about, purely
+  from audio features.
+- **`popularity_boost` is extremely sensitive.** Within-cluster cosine distances are tiny
+  (~0.0005-0.02), so a boost anywhere near that scale stops being a tie-breaker and takes over the
+  ranking entirely. At `0.1`, every "Billie Jean" recommendation was a 2019-2020 hit with popularity
+  88-95 regardless of actual distance; at the current default of `0.01`, results span 1972-2019 and
+  read as genuinely similar rather than just generically popular.
+- **Aggregate audio features struggle with structurally complex songs.** "Bohemian Rhapsody" shifts
+  between a ballad, an operatic section, and hard rock, but the dataset represents it as one averaged
+  feature row — so its nearest neighbors don't feel meaningfully related. That's a limitation of
+  whole-track feature averaging, not a bug in the distance calculation.
+- **The dataset has duplicate entries** (same song/artist, slightly different feature values), which
+  occasionally surfaces a track twice in one result set.
+
+See the notebook's [evaluation](notebooks/spotify_recommender.ipynb) section for the full song-by-song
+results and the popularity_boost comparison this is based on.
+
 ### Limitations
 
 - **No personalization** — recommendations depend only on the query song's audio features, not any
