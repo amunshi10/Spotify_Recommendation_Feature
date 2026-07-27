@@ -9,6 +9,8 @@ songs that *sound* similar, based purely on Spotify's audio features (danceabili
 tempo, loudness, acousticness, etc.) — no user listening history or collaborative filtering involved.
 The dataset covers 170,000+ tracks released between 1921 and 2020.
 
+![App screenshot](outputs/app_screenshot.png)
+
 ## Dataset
 
 [Spotify Dataset 1921-2020, 160k+ Tracks](https://www.kaggle.com/datasets/ektanegi/spotifydata-19212020) (Kaggle).
