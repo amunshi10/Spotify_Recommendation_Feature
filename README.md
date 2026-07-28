@@ -23,7 +23,7 @@ The dataset covers 170,000+ tracks released between 1921 and 2020.
 4. **Cluster** — K-Means over the scaled features to add a "sound cluster" label as an extra feature.
 5. **Build the recommender** — cosine distance, feature weighting, same-cluster filtering, and
    popularity-aware re-ranking (see [`src/recommender.py`](src/recommender.py)).
-6. *Evaluate — test the recommender on familiar songs and manually judge whether the outputs feel genre/mood-consistent, since there's no ground-truth labels to benchmark against.
+6. **Evaluate** — test the recommender on familiar songs and manually judge whether the outputs feel genre/mood-consistent, since there's no ground-truth labels to benchmark against.
 
 ## Structure
 
