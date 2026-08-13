@@ -4,8 +4,9 @@ import streamlit as st
 from src.recommender import load_and_prepare, SpotifyRecommender
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'data.csv')
+ICON_PATH = os.path.join(os.path.dirname(__file__), 'assets', 'spotify_icon.png')
 
-st.set_page_config(page_title='Spotify Recommender', page_icon='🎵')
+st.set_page_config(page_title='Spotify Recommender', page_icon=ICON_PATH)
 
 
 @st.cache_data
@@ -13,7 +14,11 @@ def get_data():
     return load_and_prepare(DATA_PATH)
 
 
-st.title('🎵 Spotify Song Recommendation System')
+header_col1, header_col2 = st.columns([1, 9], vertical_alignment='center')
+with header_col1:
+    st.image(ICON_PATH, width=56)
+with header_col2:
+    st.title('Spotify Song Recommendation System')
 st.write('Content-based recommendations using audio features (danceability, energy, valence, tempo, etc.) — no listening history required.')
 
 data = get_data()
