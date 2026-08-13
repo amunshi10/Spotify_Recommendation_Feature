@@ -9,6 +9,8 @@ songs that *sound* similar, based purely on Spotify's audio features (danceabili
 tempo, loudness, acousticness, etc.) — no user listening history or collaborative filtering involved.
 The dataset covers 170,000+ tracks released between 1921 and 2020.
 
+**Live demo:** https://spotifyrecommendationfeature-dbyplbiqcvaj2k6rduzazy.streamlit.app/
+
 ![App screenshot](outputs/app_screenshot.png)
 
 ## Dataset
